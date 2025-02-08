@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,12 +24,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build and deploy
+      - name: Build
+        run: npm run build
+
+      - name: Prepare deployment directory
         run: |
-          npm run build
-          cp -r public/* .
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push origin HEAD:gh-pages --force
+          rm -rf gh-pages
+          mkdir gh-pages
+          cp -r public/* gh-pages/
+
+      - name: Remove README.md if exists
+        run: |
+          if [ -f "gh-pages/README.md" ]; then
+            rm gh-pages/README.md
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
