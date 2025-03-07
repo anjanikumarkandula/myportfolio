@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
-import { HashRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
     <div className="App">
       <header className="App-header">
         <nav>
@@ -52,7 +50,6 @@ function App() {
         <p>LinkedIn: <a href="https://www.linkedin.com/in/akkandula/">linkedin</a></p>
       </footer>
     </div>
-    </Router>
   );
 }
 
