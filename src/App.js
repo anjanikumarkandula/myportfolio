@@ -46,7 +46,7 @@ function App() {
 
       <footer id="contact" className="footer">
         <h2>Contact Me</h2>
-        <p>Email: your.email@example.com</p>
+        <p>Email: anjanikumarkandula98@gmail.com</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/akkandula/">linkedin</a></p>
       </footer>
     </div>
