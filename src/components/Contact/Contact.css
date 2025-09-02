@@ -1,0 +1,86 @@
+/* src/components/Contact/Contact.css */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease;
+  color: #666;
+}
+
+.contact-item:hover {
+  transform: translateX(10px);
+  color: var(--copper);
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  color: #555;
+  margin-right: 15px;
+  transition: all 0.5s ease;
+}
+
+.contact-item:hover i {
+  color: var(--copper);
+  transform: scale(1.2);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #666;
+  transition: all 0.5s ease;
+}
+
+.form-group:focus-within label {
+  color: var(--copper);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: var(--text-light);
+  transition: all 0.5s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--copper);
+  box-shadow: 0 0 10px rgba(184, 115, 51, 0.3);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

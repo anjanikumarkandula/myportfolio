@@ -1,44 +1,83 @@
-body {
+/* src/App.css */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-.App-header {
-  background-color: #282c34;
-  padding: 1rem;
-  text-align: center;
-}
-
-.App-header nav ul {
-  list-style: none;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --pcb-green: #0a4b33;
+  --copper: #b87333;
+  --solder: #ceb79c;
+  --silicon: #3a4b5b;
+  --text-light: #e0e0e0;
+  --text-dark: #121212;
+  --trace-blue: #2a7fff;
+  --trace-red: #ff2a2a;
+  --trace-yellow: #ffcc00;
+  --trace-green: #00cc66;
+  --electric-blue: #00ccff;
+  --electric-purple: #9900ff;
+  --background: #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-light);
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(184, 115, 51, 0.1);
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
 }
 
-.App-header nav ul li a {
-  color: white;
-  text-decoration: none;
+section.active {
+  opacity: 1;
 }
 
-.hero-section {
-  text-align: center;
-  padding: 4rem;
-  background: #f7f7f7;
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  color: #666;
+  transition: all 0.5s ease;
 }
 
-.about-section,
-.projects-section,
-.footer {
-  padding: 2rem;
-  text-align: center;
+.section-title.active {
+  color: var(--copper);
 }
 
-.project {
-  margin: 1rem 0;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--copper);
+  transition: width 0.5s ease;
+}
+
+.section-title.active::after {
+  width: 100%;
 }

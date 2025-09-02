@@ -1,0 +1,80 @@
+/* src/components/Header/Header.css */
+header {
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(184, 115, 51, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #444;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.logo.active {
+  color: var(--copper);
+  text-shadow: 0 0 10px rgba(184, 115, 51, 0.7);
+}
+
+.logo i {
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.5s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--copper);
+  transition: width 0.5s ease;
+}
+
+.nav-links a.active {
+  color: var(--copper);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--copper);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
