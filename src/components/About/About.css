@@ -2,7 +2,12 @@
 
 /* ONLY ADD THIS NEW RULE - keep all your existing CSS */
 .section-title {
-  color: #e01919; /* Copper color - change this to any color you want */
+    color: #fbfbfb;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+    transition: all .5s ease;
 }
 
 /* Your existing CSS below - DON'T MODIFY */
