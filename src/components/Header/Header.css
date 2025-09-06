@@ -1,11 +1,11 @@
 /* src/components/Header/Header.css */
 header {
-  padding: 20px 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-bottom: 1px solid rgba(184, 115, 51, 0.1);
 }
 
@@ -16,12 +16,13 @@ nav {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #444;
   display: flex;
   align-items: center;
   transition: all 0.5s ease;
+  z-index: 1001;
 }
 
 .logo.active {
@@ -36,6 +37,8 @@ nav {
 .nav-links {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -43,11 +46,12 @@ nav {
 }
 
 .nav-links a {
-  color: #faf8f8;
+  color: #555;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.5s ease;
   position: relative;
+  font-size: 1rem;
 }
 
 .nav-links a::after {
@@ -73,8 +77,79 @@ nav {
   color: var(--copper);
 }
 
+/* Hamburger menu - hidden by default on desktop */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--copper);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .hamburger-menu {
+    display: flex;
   }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(10, 25, 41, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease-in-out;
+    padding: 60px 0 40px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .nav-open {
+    right: 0;
+  }
+  
+  .nav-links li {
+    margin: 15px 0;
+    margin-left: 0;
+  }
+  
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  /* Animate hamburger to X when menu is open */
+  .nav-open + .hamburger-menu span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .nav-open + .hamburger-menu span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-open + .hamburger-menu span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
+/* Prevent body scrolling when menu is open */
+body.menu-open {
+  overflow: hidden;
 }
