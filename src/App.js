@@ -14,7 +14,7 @@ function App() {
   const [activeSection, setActiveSection] = useState(null);
   const scrollTimeout = useRef(null);
 
-  // Function to activate elements
+
   const activateElements = () => {
     // Activate bus lines
     document.querySelectorAll('.bus-line').forEach(line => {
