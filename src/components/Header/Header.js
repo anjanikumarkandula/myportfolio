@@ -14,7 +14,7 @@ const Header = ({ activeSection, setActiveSection }) => {
       <div className="container">
         <nav>
           <div className={`logo ${activeSection ? 'active' : ''}`}>
-            <i className="fas fa-microchip"></i> Embedded Portfolio
+            <i className="fas fa-microchip"></i> Portfolio
           </div>
           <ul className="nav-links">
             <li>

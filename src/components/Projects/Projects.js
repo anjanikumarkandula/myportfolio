@@ -6,21 +6,21 @@ const Projects = () => {
   const projects = [
     { 
       icon: 'fas fa-temperature-low', 
-      title: 'Smart HVAC Controller', 
+      title: 'EnviroChat', 
       description: 'An energy-efficient HVAC control system with IoT connectivity and machine learning-based optimization.',
-      tags: ['C++', 'FreeRTOS', 'ESP32', 'MQTT']
+      tags: ['Python', 'Django', 'HTML', 'CSS']
     },
     { 
       icon: 'fas fa-car', 
-      title: 'CAN Bus Analyzer', 
+      title: 'FilePorter', 
       description: 'A custom tool for analyzing and debugging CAN bus communications in automotive applications.',
-      tags: ['C', 'STM32', 'CAN', 'Python']
+      tags: ['C', 'STM32', 'C++', 'NFTW']
     },
     { 
       icon: 'fas fa-heartbeat', 
-      title: 'Wearable Health Monitor', 
+      title: 'WebSearcher', 
       description: 'A low-power wearable device that tracks vital signs and transmits data via BLE to a mobile app.',
-      tags: ['Zephyr RTOS', 'nRF52', 'BLE', 'Sensors']
+      tags: ['Java', 'Jsoup', 'Selenium']
     },
   ];
 
